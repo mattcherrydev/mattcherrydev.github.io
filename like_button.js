@@ -1,25 +1,18 @@
-'use strict';
+import React from 'react';
 
-const e = React.createElement;
-
-class LikeButton extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { liked: false };
-    }
-
+class ShoppingList extends React.Component {
     render() {
-        if (this.state.liked) {
-            return 'You liked this.';
-        }
-
-        return e(
-            'button',
-            { onClick: () => this.setState({ liked: true }) },
-            'Like'
+        return (
+            <div className="shopping-list">
+                <h1>Shopping List for {this.props.name}</h1>
+                <ul>
+                    <li>Instagram</li>
+                    <li>WhatsApp</li>
+                    <li>Oculus</li>
+                </ul>
+            </div>
         );
     }
 }
 
-const domContainer = document.querySelector('#container');
-ReactDOM.render(e(LikeButton), domContainer);
+<ShoppingList name="Mark"/>
